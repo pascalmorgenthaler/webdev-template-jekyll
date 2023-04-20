@@ -17,6 +17,11 @@ img { max-width: 100%; height: auto; }
 
 section { position: relative; }
 
+html { 
+  scroll-behavior: smooth ;
+  -webkit-text-size-adjust: 100%; /* Prevent font scaling in landscape while allowing user zoom */
+}
+
 
 /* ---------- Negative Space Utility Classes  ------------------ */ 
 
@@ -32,6 +37,9 @@ section { position: relative; }
 .tall-70  { min-height: 70vh; }
 .tall-60  { min-height: 60vh; }
 .tall-50  { min-height: 50vh; }
+.tall-40  { min-height: 40vh; }
+.tall-30  { min-height: 30vh; }
+.tall-20  { min-height: 20vh; }
 
 /* Padding Utility Classes */ 
 .padded-sm { padding: 2.5%; }
@@ -94,6 +102,11 @@ section { position: relative; }
 
 .margin-tb { margin-top: 5%; margin-bottom: 5%; }
 .margin-lr { margin-left: 5%; margin-right: 5%; }
+
+
+.relative { position: relative;}
+.block { position: block;}
+.inline-block { position: inline-block;}
 
 /* ------------ Backgrounds & Background Images  ----------------------- */
 
@@ -202,6 +215,16 @@ p:last-child {
 .subtle         { opacity: 0.8;     }
 .subtitle       { font-size: 0.8rem; }
 
+.tworem         { font-size: 2rem;}
+.two5rem       { font-size: 2.5rem;}
+.threerem       { font-size: 3rem;}
+.fourrem        { font-size: 4rem; }
+.fiverem       { font-size: 5rem;}
+
+.text-white     { color: white; }
+
+.no-deco { text-decoration: none; }
+
 
 /* ------------ Buttons & Links ------------ */
 a {
@@ -256,10 +279,35 @@ nav a:hover {
   color: var(--featured-text);
 }
 
-.logo {
+/* ------------ Footer Styles -------------- */
+
+footer a {
+  text-align: center;
+  display: inline-block;
   text-decoration: none;
-  font-size: 2.5rem;
-} 
+  padding: 0.2rem 0 0.2rem 0.2rem;
+  font-weight: 200;
+}
+
+footer nav a {
+  text-align: right;
+  display: block;
+  text-decoration: none;
+  padding: 0.2rem 0 0.2rem 0.2rem;
+  text-transform: uppercase;
+  font-weight: 200;
+}
+
+.fa-brands {
+  text-align: center;
+  font-size: 1.6rem;
+}
+
+
+.pajurama-logo {
+  width: 6rem;
+  border-bottom: none;
+}
 
 
 /* Dropdown styles */
@@ -297,118 +345,249 @@ nav a:hover {
   padding: 0.2rem;
 }
 
-.hamburger-button {
-    cursor: pointer;
-    padding: 0.5rem;
-    display: inline-block;
-    font-weight: 200;
-    font-size: 2.5rem;
-    line-height: 0.8;
-    position: fixed;
-    right: 5%;
-    top: 0rem;
-    z-index: 4;
-  }
-  
-  /* Styles when the hamburger button is active  */
-  .hamburger-button.active {
-    color: white;
-  }
-  
-  
-  .mobile-menu {
-    display: none; 
-    background-color: var(--featured);
-    padding: 5%;
-    position: fixed; 
-    z-index:3;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    text-align: center;
-  }
-  
-  .mobile-menu a {
-    text-decoration: none; 
-    color: inherit; 
-    padding: 2%;
-    display: block;
-    font-weight: normal;
-  }
+/* ------------ Burger Button / Mobile Menu Styles -------------- */
 
+.burger-button {
+  position:fixed;
+  top: 2vh;
+  right: 4vh;
+  z-index: 9;
+  padding: 8px;
+  margin-top: 0.8rem;
+  line-height: 1.7;
+  cursor: pointer;
+  
+}
+
+.burger-button-index {
+  position:fixed;
+  top: 2vh;
+  right: 2vh;
+  z-index: 9;
+  padding: 8px;
+  margin-top: 0.6rem;
+  line-height: 1.7;
+  cursor: pointer;
+  
+}
+/*this is where you can chand the color of the buttons*/
+
+.burger-button-index span{
+  width: 35px;
+  border: 2px solid var(--medium);
+  background-color: white;
+  display: block;
+  transition: 0.5s;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.burger-button-index.active span{
+  border-color: var(--light);
+  background-color:white;
+}
+
+.burger-button span{
+  width: 35px;
+  border: 2px solid var(--medium);
+  background-color: white;
+  display: block;
+  transition: 0.5s;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.burger-button.active span{
+  border-color: var(--light);
+  background-color:white;
+}
+
+.burger-top, .burger-bottom{
+  position: absolute;
+}
+
+.burger-top{
+  top: -02px;
+}
+
+.burger-bottom{
+  bottom: -02px;
+}
+/* make sure this has the same top as the burger button has padding*/
+.burger-button.active .burger-top{
+  position: absolute;
+  top: 8px;
+  transform: rotateZ(45deg);
+}
+
+.burger-button.active .burger-middle{
+/*   transform: rotateZ(270deg); */
+  border-color: rgba(0,0,0,0);
+  background-color:rgba(0,0,0,0);
+}
+
+/* make sure this has the same bottom as the burger button has padding*/
+
+.burger-button.active .burger-bottom{
+  position: absolute;
+  bottom: 8px;
+  transform: rotateZ(-45deg);
+}
+
+/* make sure this has the same top as the burger button has padding*/
+.burger-button-index.active .burger-top{
+  position: absolute;
+  top: 8px;
+  transform: rotateZ(45deg);
+}
+
+.burger-button-index.active .burger-middle{
+/*   transform: rotateZ(270deg); */
+  border-color: rgba(0,0,0,0);
+  background-color:rgba(0,0,0,0);
+}
+
+/* make sure this has the same bottom as the burger button has padding*/
+
+.burger-button-index.active .burger-bottom{
+  position: absolute;
+  bottom: 8px;
+  transform: rotateZ(-45deg);
+}
+  
+  
+.menu-button:hover {
+  font-style: italic;
+}
+
+.menu-button.active:hover {
+  color: var(--dark-text)
+}
+
+.mobile-menu {
+  background-color: var(--featured);
+  padding: 0 5% 5% 5%;
+  position: fixed; 
+  z-index: 1;
+  top: 0;
+  right: -100%;
+  left: 100vw;
+  bottom: 0;
+  color: white;
+  text-align: left;
+  transition: 0.5s;
+  max-height: 100vh;
+  overflow: scroll;
+}
+
+.mobile-menu.active {
+  right: 0;
+  left: 20vw;
+}
+
+.logo-mobile-menu {
+  text-align: left;
+  position: absolute;
+  top: 2rem;
+  max-width: 11rem;
+  left: 2rem;
+}
+
+.mobile-menu a {
+  font-family: 'Poiret One', sans-serif;
+  display: block;
+  padding: 0.5rem 1rem;
+  font-size: 1.3rem;
+  color: var(--dark-text)
+} 
+
+.mobile-nav {
+  margin-top: 7rem;
+  text-align: left;
+  display: block
+}
 
 
 /* ------------ Contact Forms  ----------------------- */
 
+/* ------------ Form Styles  ----------------------- */
+select {
+  line-height: 1.8rem;
+  color: var(--dark-text);
+  font-size: 1.2rem;
+  width: 100%;
+  display: block;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  font-family: inherit;
+  font-size: 1rem;
+  border: 2px solid var(--medium);
+  color: var(--dark-text);
+  background-color: white;
+}
 
+option {
+  width: 100%;
+  display: block;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  font-family: inherit;
+  font-size: 1rem;
+  border: 2px solid var(--medium);
+  color: var(--dark-text);
+  background-color: white;
+}
+
+label {
+  line-height: 1.8rem;
+  color: var(--dark-text);
+  font-size: 1.2rem;
+}
+
+input, textarea {
+  width: 100%;
+  display: block;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  font-family: inherit;
+  font-size: 1rem;
+  border: 2px solid var(--medium);
+  color: var(--dark-text);
+  background-color: white;
+}
+
+           
+input:focus,
+textarea:focus {
+  outline: none;
+  border: 2px solid var(--light);
+}
+
+
+textarea {
+  height: 20vh;
+}
+
+button {
+    font-size: 1.2rem;
+    display: inline-block;
+    text-decoration: none;
+    border: 1px solid var(--medium);
+    text-align: center;
+    background-color: transparent;
+    cursor: pointer;
+    font-weight: 400;
+    font-family: 'Jost', sans-serif;
+    padding: 0.5rem 1rem;
+}
+
+button:hover {
+  border: 1px solid var(--light);
+}
 
 /* ------------ Blogging elements  ----------------------- */
 
 
 
-/* Post Loop Item  */
 
-.post-item {
-  text-decoration: none;
-}
-
-
-/* Individual Elements */
-
-.tag {
-  display: inline-block;
-  font-weight: bold;
-  text-transform: uppercase;
-  opacity: 0.5;
-  font-size: 0.8rem;
-  margin-right: 0.4rem;
-}
-
-.post-info {
-  font-size: 0.8rem;
-  color: var(--medium-text);
-}
-
-/* Individual Blog Post Pages  */
-
-.blog-content h1 {
-  font-family: 'Martel', serif; 
-  font-weight: 200;
-  font-size: 3rem;
-}
-
-.blog-content p {
-  line-height: 1.6;
-}
-
-.blog-content hr {
-  border: none;
-  border: 1px solid var(--medium);
-}
-
-
-/* Sidebar */
-.sidebar-item {
-  border: 2px solid var(--light);
-  margin-bottom: 1rem;
-  color: var(--medium-text);
-}
-.sidebar-item p {
-  font-family: 'Mulish', serif; 
-  font-weight: 300;
-}
-
-.recent-posts-nav a{
-  display: block;
-  font-weight: 300;
-}
-
-/* Social Share Nav  */
-
-.social-share a {
-  padding: 0.25rem 0.5rem;
-}
 
 /* Miscelaneous elements  */
 

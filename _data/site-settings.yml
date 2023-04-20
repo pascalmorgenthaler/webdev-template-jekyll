@@ -1,15 +1,16 @@
 seo:
-  site_name: Tina's Amazing Blog
-  title: Default SEO Title
+  site_name: Example
+  title: Example SEO Title
   description:
   keywords:
   social_image:
   author:
   favicon_image:
 social:
-  instagram_username:
+  instagram_url:
   facebook_url:
-  twitter_username:
+  pinterest_url:
+  linkedin_url:
 design:
   dark-text_color: '#3c3c41'
   medium-text_color: '#5a5a5f'
